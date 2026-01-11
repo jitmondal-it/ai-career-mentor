@@ -1,20 +1,52 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# AI Career Mentor 🎯
 
-# Run and deploy your AI Studio app
+AI Career Mentor is a full-stack web application designed to help students
+and early professionals choose the right career path based on their skills,
+interests, and goals using AI-driven guidance.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1rJ1XpUq1LSQYYhqcePEqASifn7W4d3Pt
+## 🚀 Features
 
-## Run Locally
+- AI-based career recommendations
+- Skill gap analysis
+- Personalized career roadmap
+- Interactive mentoring interface
+- Modern and responsive UI
 
-**Prerequisites:**  Node.js
+---
 
+## 🛠 Tech Stack
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Frontend
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+- REST APIs
+
+### Tools
+- Git & GitHub
+- VS Code
+
+---
+
+## 📂 Project Structure
+
+```text
+ai-career-mentor/
+│
+├── backend/               # Backend server and APIs
+├── components/            # Reusable React components
+├── services/              # API calls and business logic
+├── App.tsx                # Main application component
+├── index.tsx              # Application entry point
+├── index.html             # HTML template
+├── vite.config.ts         # Vite configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── package.json
+└── README.md

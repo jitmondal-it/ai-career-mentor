@@ -12,13 +12,25 @@ app.use(express.json());
 
 const API_KEY = process.env.GEMINI_API_KEY;
 
-// Health check (VERY IMPORTANT for Render)
+// Fail fast if API key is missing
+if (!API_KEY) {
+  console.error("GEMINI_API_KEY is not set");
+  process.exit(1);
+}
+
+// Health check (important for Render)
 app.get("/", (req, res) => {
   res.send("AI Career Mentor Backend is running");
 });
 
 app.post("/career", async (req, res) => {
   try {
+    const { prompt } = req.body;
+
+    if (!prompt) {
+      return res.status(400).json({ error: "Prompt is required" });
+    }
+
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
       {
@@ -29,7 +41,7 @@ app.post("/career", async (req, res) => {
         body: JSON.stringify({
           contents: [
             {
-              parts: [{ text: req.body.prompt }],
+              parts: [{ text: prompt }],
             },
           ],
         }),
@@ -54,7 +66,7 @@ app.post("/career", async (req, res) => {
   }
 });
 
-// ✅ REQUIRED FOR DEPLOYMENT
+// Required for cloud deployment
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
